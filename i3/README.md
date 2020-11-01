@@ -7,6 +7,6 @@ Splitting vertically is bound to super+b.
 
 I use the keys y, u, i, o for workspaces.\
 Examples:\
-super+y+y opens workspace yy.
-super+y+u opens workspace yu.
+super+y+y opens workspace yy.\
+super+y+u opens workspace yu.\
 super+shift+i+o moves focused window to workspace io.
