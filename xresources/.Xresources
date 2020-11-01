@@ -1,0 +1,95 @@
+#define YELLOW #ffb300
+#define BG #394b56
+#define FG #dcdcdc
+#define LIGHT_BLUE #38a4ff
+#define DRY_ORANGE #ffaf5f
+#define BRIGHT_GRAY #f3f3f3
+#define GRAY_BLUE #9999a7
+#define VIM_NORMAL_FG #ffffff
+#define LINENR_FG #85563f
+#define LINENR_BG #5b3420
+#define COMMENT #46545d
+#define TEN_FF_MEDIUM_GRAYBLUE #172730
+#define TEN_FF_DARK_GRAYBLUE #0d1e27
+#define MY_DARK_ORANGE #ff8c5e
+#define MY_LIGHT_CYAN #ff00d0
+#define MY_BRIGHT_RED #ff7e88
+#define MY_PURPLE #c75fff
+#define MY_GRAYBLUE #7584ad
+#define MY_ORANGE #ffff8a
+#define MY_MAGENTA #ff5fff
+#define MY_DARK_MAGENTA #ff00ff
+#define MY_GREEN #89e669
+#define MY_BLUE #799aff
+#define MY_TOTAL_GREEN #61ff00
+URxvt*termName: rxvt-unicode-256color
+URxvt*scrollBar: false
+URxvt*saveLines: 8192
+URxvt*internalBorder: 2
+URxvt*perl-ext-common: selection-to-clipboard,xresources-256
+URxvt*iso14755: false
+URxvt*iso14755_52: false
+URxvt*cursorColor: orange
+URxvt*cursorBlink: true
+URxvt.keysym.Shift-Up: command:\033]720;1\007
+URxvt.keysym.Shift-Down: command:\033]721;1\007
+URxvt.letterSpace: 0
+URxvt*font: xft:Roboto Mono Medium:style=Regular:size=8
+URxvt*boldFont: xft:Roboto Mono:style=Bold:size=8
+URxvt*italicFont: xft:Roboto Mono Medium:style=Medium Italic:size=8
+URxvt*boldItalicFont: xft:Roboto Mono:style=Bold Italic:size=8
+URxvt*transparent: true
+URxvt*shading: 25
+URxvt*foreground: FG
+URxvt*background: BG
+URxvt*color0:  BG 
+URxvt*color1:  DRY_ORANGE
+URxvt*color2:  LIGHT_BLUE
+URxvt*color3:  YELLOW
+URxvt*color4:  YELLOW
+URxvt*color5:  YELLOW
+URxvt*color6:  BRIGHT_GRAY
+URxvt*color7:  GRAY_BLUE
+URxvt*color8:  DRY_ORANGE
+URxvt*color9:  DRY_ORANGE
+URxvt*color10: LIGHT_BLUE
+URxvt*color11: YELLOW
+URxvt*color12: YELLOW
+URxvt*color13: YELLOW
+URxvt*color14: FG
+URxvt*color15: DRY_ORANGE
+URxvt*color17: LINENR_FG
+URxvt*color18: LINENR_BG
+URxvt*color19: MY_MAGENTA
+URxvt*color20: MY_PURPLE
+URxvt*color21: MY_TOTAL_GREEN
+URxvt*color22: MY_DARK_MAGENTA
+URxvt*color23: TEN_FF_MEDIUM_GRAYBLUE
+URxvt*color75: COMMENT
+URxvt*color96: VIM_NORMAL_FG
+
+!includes, imports, defines
+URxvt*color108: MY_ORANGE
+
+!java(class obj names, arguments, import libraries) c(cerr, cin)
+URxvt*color109: MY_GRAYBLUE
+
+!functions
+URxvt*color142: MY_BLUE
+
+URxvt*color167: MY_BRIGHT_RED
+
+!static, this, numbers, (std, false, values)
+URxvt*color175: MY_LIGHT_CYAN
+
+URxvt*color176: TEN_FF_DARK_GRAYBLUE
+!URxvt*color177: #46545d
+URxvt*color177: #3c434f
+
+URxvt*color178: #223947
+URxvt*color179: #304f63
+
+URxvt*color180: #565f78
+
+URxvt*color208: MY_GREEN
+URxvt*color214: MY_DARK_ORANGE
