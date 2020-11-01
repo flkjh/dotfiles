@@ -1,10 +1,16 @@
-# vim
+# VIM DEV BRANCH
+
 Vim settings and vim coloring.
+
+Currently focuses on terminal vim.
 
 ## Remarks
 I am just a pleb spending more and more time in terminal vim, and I like to tinker with key bindings, settings, coloring, etc...
+
 All vim files are currently under development, so file version numbers of everything will be a key feature to keep track of everything when dev files are merged to master branch.
+
 Currently I am using gruvbox, but the color scheme has gradually diverged to become a custom color scheme, so I feel the need to create my own color scheme.
+
 Currently I have created some custom colors in xresources that terminal vim uses.
 
 ## TODO's
