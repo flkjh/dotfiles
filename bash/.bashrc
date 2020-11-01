@@ -18,9 +18,9 @@ case "$TERM" in
 esac
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	color_prompt=yes
+	    color_prompt=yes
     else
-	color_prompt=
+	    color_prompt=
     fi
 fi
 if [ "$color_prompt" = yes ]; then
@@ -77,10 +77,6 @@ function goshow () {
     fi
 }
 
-function vshow () {
-    v $1 && la
-}
-
 #if no file is given, start vim in insert mode
 #CAREFUL: this function performs fuzzy search in current directory
 #v filename 13: open file at line 13
@@ -91,17 +87,17 @@ function v () {
         FDIR=$(find . -maxdepth 1 -name '*' -type f | grep "$1" | head -1)
         if [ "$FDIR" != "" ]; then
             if [ "$#" -lt 2 ]; then
-                vim "$FDIR"
+                vim "$FDIR" && la
             elif [ "$#" -eq 2 ]; then
-                vim "$FDIR" +"$2"
+                vim "$FDIR" +"$2" && la
             elif [ "$#" -eq 3 ]; then
-                vim "$FDIR" "+call cursor($2, $3)"
+                vim "$FDIR" "+call cursor($2, $3)" && la
             fi
         else
-            vim $1
+            vim $1 && la
         fi
     else
-        vim +star
+        vim +star && la
     fi
 }
 
@@ -179,7 +175,7 @@ function removeduplicates () {
 }
 
 function vi3 () {
-    vshow ~/.config/i3/config
+    v ~/.config/i3/config
 }
 
 function goi3 () {
@@ -191,7 +187,7 @@ function vx () {
 }
 
 function vv () {
-    vshow ~/.vimrc
+    v ~/.vimrc
 }
 
 function govim () {
@@ -313,17 +309,17 @@ function dreload () {
 
 #emacs config (vec - vim emacs config)
 function vec () {
-    vshow ~/.doom.d/config.el
+    v ~/.doom.d/config.el
 }
 
 #emacs packages (vep - vim emacs packages)
 function vep () {
-    vshow ~/.doom.d/packages.el
+    v ~/.doom.d/packages.el
 }
 
 #emacs init (vei - vim emacs init)
 function vei () {
-    vshow ~/.doom.d/init.el
+    v ~/.doom.d/init.el
 }
 
 #open doom emacs folder and list content
@@ -362,7 +358,6 @@ function gc () {
 
 export -f colorecho
 export -f goshow
-export -f vshow
 export -f l
 export -f la
 export -f c
