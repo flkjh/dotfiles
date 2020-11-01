@@ -67,29 +67,15 @@ URxvt*color22: MY_DARK_MAGENTA
 URxvt*color23: TEN_FF_MEDIUM_GRAYBLUE
 URxvt*color75: COMMENT
 URxvt*color96: VIM_NORMAL_FG
-
-!includes, imports, defines
 URxvt*color108: MY_ORANGE
-
-!java(class obj names, arguments, import libraries) c(cerr, cin)
 URxvt*color109: MY_GRAYBLUE
-
-!functions
 URxvt*color142: MY_BLUE
-
 URxvt*color167: MY_BRIGHT_RED
-
-!static, this, numbers, (std, false, values)
 URxvt*color175: MY_LIGHT_CYAN
-
 URxvt*color176: TEN_FF_DARK_GRAYBLUE
-!URxvt*color177: #46545d
 URxvt*color177: #3c434f
-
 URxvt*color178: #223947
 URxvt*color179: #304f63
-
 URxvt*color180: #565f78
-
 URxvt*color208: MY_GREEN
 URxvt*color214: MY_DARK_ORANGE
