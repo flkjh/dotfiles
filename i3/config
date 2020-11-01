@@ -167,7 +167,7 @@ bindsym $win+Return exec "i3-msg exit"
 mode "i3 reload/restart" {
         bindsym c mode default; reload
         bindsym r mode default; restart
-        bindsym $win+plus mode "default"
+        bindsym $win+minus mode "default"
 }
 bindsym $win+minus mode "i3 reload/restart"
 
