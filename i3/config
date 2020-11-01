@@ -1,0 +1,219 @@
+#
+set $borderpix 2
+set $kb us
+bindsym $win+Escape exec "bash -c ~/.config/i3/kbtoggle.sh"
+set $win mod4
+set $alt mod1
+set $ralt mod5
+set $ctrl control
+set $caps F13
+floating_modifier $win
+font pango:monospace 8
+new_window pixel 1
+bindsym $win+Shift+space kill
+
+##█████  ██████  ██████  ███████ 
+#██   ██ ██   ██ ██   ██ ██      
+#███████ ██████  ██████  ███████ 
+#██   ██ ██      ██           ██ 
+#██   ██ ██      ██      ███████ 
+bindsym $win+space exec "urxvt"
+bindsym $win+$ctrl+m exec  "firefox" 
+bindsym $win+$ctrl+g exec "gimp"
+bindsym $win+$ctrl+z exec "zathura"
+bindsym $win+$ctrl+v exec "urxvt -e vim +star"
+bindsym $win+$ctrl+e exec "emacs"
+bindsym $win+Shift+d exec dmenu_run
+bindsym $win+d exec "dmenu_run -c -l 20"
+bindsym $win+Pause exec  "pavucontrol" 
+
+bindsym $win+h focus left
+bindsym $win+j focus down
+bindsym $win+k focus up
+bindsym $win+l focus right
+bindsym $win+Shift+h move left
+bindsym $win+Shift+j move down
+bindsym $win+Shift+k move up
+bindsym $win+Shift+l move right
+
+bindsym $win+g split h
+bindsym $win+b split v
+bindsym $win+f fullscreen toggle
+bindsym $win+$alt+space floating toggle
+
+set $wsyy "0:yy"
+set $wsyu "1:yu"
+set $wsyi "2:yi"
+set $wsyo "3:yo"
+set $wsuy "5:uy"
+set $wsuu "6:uu"
+set $wsui "7:ui"
+set $wsuo "8:uo"
+set $wsiy "9:iy"
+set $wsiu "10:iu"
+set $wsii "11:ii"
+set $wsio "12:io"
+set $wsoy "13:oy"
+set $wsou "14:ou"
+set $wsoi "15:oi"
+set $wsoo "16:oo"
+
+mode "y" {
+    bindsym $win+y workspace $wsyy; mode "default"
+    bindsym $win+u workspace $wsyu; mode "default"
+    bindsym $win+i workspace $wsyi; mode "default"
+    bindsym $win+o workspace $wsyo; mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $win+y mode "y"
+
+mode "u" {
+    bindsym $win+y workspace $wsuy; mode "default"
+    bindsym $win+u workspace $wsuu; mode "default"
+    bindsym $win+i workspace $wsui; mode "default"
+    bindsym $win+o workspace $wsuo; mode "default"
+    bindsym  Escape "default"
+}
+bindsym $win+u mode "u"
+
+mode "i" {
+    bindsym $win+y workspace $wsiy; mode "default"
+    bindsym $win+u workspace $wsiu; mode "default"
+    bindsym $win+i workspace $wsii; mode "default"
+    bindsym $win+o workspace $wsio; mode "default"
+    bindsym  Escape "default"
+}
+bindsym $win+i mode "i"
+
+mode "o" {
+    bindsym $win+y workspace $wsoy; mode "default"
+    bindsym $win+u workspace $wsou; mode "default"
+    bindsym $win+i workspace $wsoi; mode "default"
+    bindsym $win+o workspace $wsoo; mode "default"
+    bindsym  Escape "default"
+}
+bindsym $win+o mode "o"
+
+mode "move to y" {
+    bindsym $win+Shift+y move container to workspace $wsyy; mode "default"
+    bindsym $win+Shift+u move container to workspace $wsyu; mode "default"
+    bindsym $win+Shift+i move container to workspace $wsyi; mode "default"
+    bindsym $win+Shift+o move container to workspace $wsyo; mode "default"
+    bindsym  Escape "default"
+}
+bindsym $win+Shift+y mode "move to y"
+
+mode "move to u" {
+    bindsym $win+Shift+y move container to workspace $wsuy; mode "default"
+    bindsym $win+Shift+u move container to workspace $wsuu; mode "default"
+    bindsym $win+Shift+i move container to workspace $wsui; mode "default"
+    bindsym $win+Shift+o move container to workspace $wsuo; mode "default"
+    bindsym  Escape "default"
+}
+bindsym $win+Shift+u mode "move to u"
+
+mode "move to i" {
+    bindsym $win+Shift+y move container to workspace $wsiy; mode "default"
+    bindsym $win+Shift+u move container to workspace $wsiu; mode "default"
+    bindsym $win+Shift+i move container to workspace $wsii; mode "default"
+    bindsym $win+Shift+o move container to workspace $wsio; mode "default"
+    bindsym  Escape "default"
+}
+bindsym $win+Shift+i mode "move to i"
+
+mode "move to o" {
+    bindsym $win+Shift+y move container to workspace $wsoy; mode "default"
+    bindsym $win+Shift+u move container to workspace $wsou; mode "default"
+    bindsym $win+Shift+i move container to workspace $wsoi; mode "default"
+    bindsym $win+Shift+o move container to workspace $wsoo; mode "default"
+    bindsym  Escape "default"
+}
+bindsym $win+Shift+o mode "move to o"
+
+mode "resize" {
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym j resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+        bindsym Shift+h resize shrink width 1 px or 1 ppt
+        bindsym Shift+k resize grow height 1 px or 1 ppt
+        bindsym Shift+j resize shrink height 1 px or 1 ppt
+        bindsym Shift+l resize grow width 1 px or 1 ppt
+        bindsym $win+Tab mode "default"
+}
+bindsym $win+Tab mode "resize"
+
+mode "brightness" {
+        bindsym 0 exec xrandr --output eDP-1 --brightness 0; mode "default"
+        bindsym 1 exec xrandr --output eDP-1 --brightness 0.1; mode "default"
+        bindsym 2 exec xrandr --output eDP-1 --brightness 0.2; mode "default"
+        bindsym 3 exec xrandr --output eDP-1 --brightness 0.3; mode "default"
+        bindsym 4 exec xrandr --output eDP-1 --brightness 0.4; mode "default"
+        bindsym 5 exec xrandr --output eDP-1 --brightness 0.5; mode "default"
+        bindsym 6 exec xrandr --output eDP-1 --brightness 0.6; mode "default"
+        bindsym 7 exec xrandr --output eDP-1 --brightness 0.7; mode "default"
+        bindsym 8 exec xrandr --output eDP-1 --brightness 0.8; mode "default"
+        bindsym 9 exec xrandr --output eDP-1 --brightness 0.9; mode "default"
+        bindsym d exec xrandr --output eDP-1 --brightness 1.0; mode "default"
+        bindsym $win+s mode "default"
+}
+bindsym $win+s mode "brightness"
+
+bindsym $win+Shift+BackSpace exec "systemctl reboot"
+bindsym $win+Shift+Return exec "systemctl poweroff"
+bindsym $win+BackSpace exec "i3lock"
+bindsym $win+Return exec "i3-msg exit"
+
+mode "i3 reload/restart" {
+        bindsym c mode default; reload
+        bindsym r mode default; restart
+        bindsym $win+plus mode "default"
+}
+bindsym $win+minus mode "i3 reload/restart"
+
+bar {
+        position top
+        status_command i3status 
+        strip_workspace_numbers yes
+        colors {
+            background #282e31
+            statusline #38f6ff
+            separator #666666
+			focused_workspace  #38f6ff  #38f6ff      #000000
+			active_workspace   #797988  #797988      #000000
+			inactive_workspace #797988  #797988      #000000
+			urgent_workspace   #797988  #797988      #743900
+        }
+}
+
+for_window [class="^.*"] border pixel $borderpix
+
+client.urgent           #2F343A #900000 #FFFFFF #900000   #900000
+client.placeholder      #00ffaa #000000 #FFFFFF #000000   #FF0000
+client.background       #FFFFFF
+client.focused          #00FF00 #0000FF #FFFFFF #38f6ff   #38f6ff
+client.unfocused        #00ffaa #3C3C3C #888888 #000c0c   #000c0c
+client.focused_inactive #0000ff #5A5A63 #FFFFFF #000c0c   #000c0c
+
+bindsym --release Print exec scrot -s ~/Pictures/`date +%Y-%m-%d_%H:%M:%S`.png
+bindsym --release Shift+Print exec scrot ~/Pictures/`date +%Y-%m-%d_%H:%M:%S`.png
+
+bindsym $win+Home exec --no-startup-id pactl set-sink-volume 1 +5% 
+bindsym $win+End exec --no-startup-id pactl set-sink-volume 1 -5% 
+bindsym $win+Delete exec --no-startup-id pactl set-sink-mute 1 toggle
+
+#gaps inner 35
+#gaps outer -10
+
+exec xset b off
+exec xset b 0 0 0
+focus_follows_mouse no
+exec setxkbmap -layout us
+exec_always feh --bg-scale ~/Pictures/wp/arch.png
+exec sudo dhcpcd
+exec sudo ip link set enp30s0 up
+exec dunst -c ~/.config/dunst/dunstrc
+exec xmodmap ~/.Xmodmap
+exec xmodmap ~/.Xmodmap_f13
+exec "bash -c ~/.scripts/kb/kbremap.sh"
+exec --no-startup-id i3-msg 'workspace $wsyu'
