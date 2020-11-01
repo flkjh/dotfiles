@@ -1,5 +1,5 @@
-"*fold.vim*	    Custom fold text in vim folding
-"Author:		Tomas Lestander <github.com/vwisd>
+"*fold.vim*     Custom fold text in vim folding
+"Author:        Tomas Lestander <github.com/vwisd>
 
 function! vwisd#fold#MyFoldText()
     let lc = v:foldend - v:foldstart + 1

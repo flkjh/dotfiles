@@ -1,5 +1,5 @@
-"*line.vim*	    Comments and uncomments lines without using any plugin...
-"Author:		Tomas Lestander <github.com/vwisd>
+"*line.vim*     Comments and uncomments lines without using any plugin...
+"Author:        Tomas Lestander <github.com/vwisd>
 
 function! vwisd#line#Comment()
 	let ft = &filetype
