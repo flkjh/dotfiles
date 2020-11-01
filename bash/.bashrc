@@ -77,10 +77,12 @@ function goshow () {
     fi
 }
 
+#my vim convenience function
 #if no file is given, start vim in insert mode
-#CAREFUL: this function performs fuzzy search in current directory
-#v filename 13: open file at line 13
-#v filename 13 8: open file at line 13 and column 8
+#CAREFUL: this function performs fuzzy search in current directory and will open first match
+#v bash: open the first match of all files containing "bash" in current directory
+#v file 13: open file at line 13
+#v file 13 8: open file at line 13 and column 8
 function v () {
     FDIR=""
     if [ "$#" -gt 0 ]; then
@@ -122,6 +124,7 @@ function c () {
 }
 
 #case sensitive back function such as "cd .." and does fuzzy search. also clears screen and lists content
+#if current dir is ~/private/books/cpp/bjarne/, then "b riv" will go back to ~/private/
 function b () {
     if [ "$#" -gt 0 ]; then
         found=0
