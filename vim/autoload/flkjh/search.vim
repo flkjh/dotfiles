@@ -1,5 +1,5 @@
 "*search.vim*   Literal search and replace
-"Author:        Tomas Lestander <github.com/vwisd>
+"Author:        Tomas Lestander <github.com/flkjh>
 
 let s:buf = ''
 let s:pat = ''
