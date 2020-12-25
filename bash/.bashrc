@@ -63,15 +63,15 @@ shopt -s autocd
 
 
 
-function l () {
+l(){
     clear && ls -l $1 --group-directories-first
 }
 
-function la () {
+la(){
     clear && ls -lA --group-directories-first
 }
 
-function goshow () {
+goshow(){
     if [ "$#" -eq 1 ]; then
         cd $1 && la
     fi
@@ -79,11 +79,11 @@ function goshow () {
 
 #my vim convenience function
 #if no file is given, start vim in insert mode
-#CAREFUL: this function performs fuzzy search in current directory and will open first match
+#CAREFUL: this performs fuzzy search in current directory and will open first match
 #v bash: open the first match of all files containing "bash" in current directory
 #v file 13: open file at line 13
 #v file 13 8: open file at line 13 and column 8
-function v () {
+v(){
     FDIR=""
     if [ "$#" -gt 0 ]; then
         FDIR=$(find . -maxdepth 1 -name '*' -type f | grep "$1" | head -1)
@@ -103,8 +103,8 @@ function v () {
     fi
 }
 
-#case sensitive changedir function such as "cd" and does fuzzy search. also clears screen and lists content
-function c () {
+#case sensitive changedir such as "cd" and does fuzzy search. also clears screen and lists content
+c(){
     FDIR=""
     if [ "$#" -gt 0 ]; then
         FDIR=$(find . -maxdepth 1 -name '*' -type d | grep "$1" | head -1)
@@ -119,9 +119,9 @@ function c () {
     la
 }
 
-#case sensitive back function such as "cd .." and does fuzzy search. also clears screen and lists content
+#case sensitive back such as "cd .." and does fuzzy search. also clears screen and lists content
 #if current dir is ~/private/books/cpp/bjarne/, then "b riv" will go back to ~/private/
-function b () {
+b(){
     if [ "$#" -gt 0 ]; then
         found=0
         start=$(pwd)
@@ -147,73 +147,73 @@ function b () {
     fi
 } 
 
-function bb () {
+bb(){
     source ~/.bashrc
 }
 
 #copy current directory to clipboard
-function pp () {
+pp(){
      pwd | xclip -r -selection clipboard
 }
 
 #print the last command
-function lastcmd () {
+lastcmd(){
     fc -ln -1 | sed '1s/^[[:space:]]*//'
 }
 
 #copy the last command to clipboard
-function lastPP () {
+lastPP(){
     fc -ln -1 | sed '1s/^[[:space:]]*//' | xclip -r -selection clipboard
 }
 
 #remove duplicate lines in a file
-function removeduplicates () {
+removeduplicates(){
     if [ "$#" -eq 1 ]; then
         awk '!seen[$0]++' $1
     fi
 }
 
-function vi3 () {
+vi3(){
     v ~/.config/i3/config
 }
 
-function goi3 () {
+goi3(){
     goshow ~/.config/i3/
 }
 
-function vx () {
+vx(){
     vim ~/.Xresources && xrdb ~/.Xresources && la
 }
 
-function vv () {
+vv(){
     v ~/.vimrc
 }
 
-function govim () {
+govim(){
     goshow ~/.vim
 }
 
-function vb () {
+vb(){
     vim ~/.bashrc && source ~/.bashrc && la
 }
 
-function z () {
+z(){
     zathura $1 & disown && la
 }
 
-function x () {
+x(){
 	xpdf -rv -papercolor "#808080" -fullscreen $1 & disown && la
 }
 
-function kk () {
+kk(){
     latexmk -silent -pvc "$1"
 }
 
-function xx () {
+xx(){
     rm -f *.aux *.fdb_latexmk *.fls *.log *.out *.toc
 }
 
-function f () {
+f(){
     FDIR=""
     if [ "$#" -gt 0 ]; then
         FDIR=$(ls -d -- */ 2>/dev/null | grep "$1" | head -1)
@@ -225,7 +225,7 @@ function f () {
 
 #coloring echo. first argument is terminal color 0-255
 #usage example: colorecho 20 "my name is vwisd"
-function colorecho () {
+colorecho(){
     X="\033[0;38;5;"
     Y="m"
     Z="\033[0m"
@@ -234,7 +234,7 @@ function colorecho () {
     fi
 }
 
-function fdir () {
+fdir(){
     FOUND_DIR=""
     if [ "$#" -gt 0 ]; then
         FOUND_DIR=$(find . -type d -name "*$1*" | head -1)
@@ -244,7 +244,7 @@ function fdir () {
     fi
 }
 
-function mkcd () {
+mkcd(){
     if [ "$#" -eq 1 ]; then
         mkdir -p $1 && cd $1
     else
@@ -254,7 +254,7 @@ function mkcd () {
 
 #system update by checking which os is runnning
 #and then running the corresponding package manager
-function usys () {
+usys(){
     os=$(cat /etc/*-release | grep "^ID=" | awk -F'[=]' '{ print $2 }')
     case "${os}" in
         debian)
@@ -267,75 +267,75 @@ function usys () {
 }
 
 #abbrev for make
-function m () {
+m(){
     make -s
 }
 
 #abbrev for make clean
-function mc () {
+mc(){
     make clean
 }
 
 #abbrev for make and run
-function mr () {
+mr(){
     make -s && ./prog
 }
 
 #abbrev for make and run and clean
-function mrc () {
+mrc(){
     make -s && ./prog && make clean
 }
 
 #abbrev for run
-function r () {
+r(){
     ./prog
 }
 
-function e () {
+e(){
     devour emacs
 }
 
 #doom upgrade for doom emacs
-function dupgrade () {
+dupgrade(){
     ~/.emacs.d/bin/doom upgrade
 }
 
 #doom update packages for doom emacs
-function dpack () {
+dpack(){
     ~/.emacs.d/bin/doom sync -u
 }
 
 #doom sync for doom emacs
-function dsync () {
+dsync(){
     ~/.emacs.d/bin/doom sync
 }
 
 #doom sync and restart doom emacs
-function dreload () {
+dreload(){
     ~/.emacs.d/bin/doom sync && devour emacs
 }
 
 #emacs config (vec - vim emacs config)
-function vec () {
+vec(){
     v ~/.doom.d/config.el
 }
 
 #emacs packages (vep - vim emacs packages)
-function vep () {
+vep(){
     v ~/.doom.d/packages.el
 }
 
 #emacs init (vei - vim emacs init)
-function vei () {
+vei(){
     v ~/.doom.d/init.el
 }
 
 #open doom emacs folder and list content
-function godoom () {
+godoom(){
     goshow ~/.doom.d/
 }
 
-function javac () {
+javac(){
     javac -Xlint:unchecked
 }
 
@@ -352,7 +352,7 @@ function javac () {
 alias gl='git log'
 alias gs='git status'
 alias ga='git add'
-function gc () {
+gc(){
     if [ "$#" -eq 0 ]; then
         git commit -m "small fix"
     elif [ "$#" -eq 1 ]; then
@@ -364,9 +364,9 @@ function gc () {
     fi
 }
 
-#git function for lazyness that I quickly can call with no need
+#git for lazyness that I quickly can call with no need
 #to explicitly commit before a push when tinkering with stuff
-function lazycommit () {
+lazycommit(){
     if [ "$#" -eq 0 ]; then
         git commit -m "small fix" && git push
     elif [ "$#" -eq 1 ]; then
