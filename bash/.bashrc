@@ -103,8 +103,18 @@ function v () {
     fi
 }
 
+#git function for lazyness that I quickly can call with no need
+#to explicitly commit before a push when tinkering with stuff
 function lazycommit () {
-    git commit -m "$1" && git push
+    if [ "$#" -eq 0 ]; then
+        git commit -m "small fix" && git push
+    elif [ "$#" -eq 1 ]; then
+        git commit -m "$1" && git push
+    elif [ "$#" -eq 2 ]; then
+        git commit -m "$1" -m "$2" && git push
+    else
+        echo "lazycommit error: more than 2 args, wtf is going on?"
+    fi
 }
 
 #case sensitive changedir function such as "cd" and does fuzzy search. also clears screen and lists content
