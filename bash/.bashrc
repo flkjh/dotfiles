@@ -256,9 +256,18 @@ function mkcd () {
     fi
 }
 
-#update system in arch
+#system update by checking which os is runnning
+#and then running the corresponding package manager
 function usys () {
-    sudo pacman -Syy && sudo pacman -Syu
+    os=$(cat /etc/*-release | grep "^ID=" | awk -F'[=]' '{ print $2 }')
+    case "${os}" in
+        debian)
+            sudo apt update && sudo apt -y upgrade
+            ;;
+        arch) 
+            sudo pacman -Syy && sudo pacman -Syu
+            ;;
+    esac
 }
 
 #abbrev for make
